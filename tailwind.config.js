@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         "primary-orange": "#f26122",
         "primary-teal": "#388084",
+        "primary-white": "#f8f8f9",
         shades: {
           50: "#fff8f6",
           100: "#fff2ed",
@@ -22,8 +23,7 @@ module.exports = {
           900: "#001d1f",
         },
         white: {
-          50: "#ffffff",
-          100: "#f8f8f9",
+          100: "#ffffff",
           200: "#e8e8eb",
           300: "#d7d7db",
           400: "#a3a3ac",
@@ -33,6 +33,9 @@ module.exports = {
           800: "#27272a",
           900: "#18181b",
         },
+      },
+      fontFamily: {
+        lato: ["Lato", "sans-serif"],
       },
     },
   },
