@@ -53,8 +53,8 @@ const HomePage = () => {
       <main className="w-screen h-screen bg-primary-teal flex items-center justify-center font-lato">
         <section className="bg-shades-300 w-10/12 py-20 rounded-xl drop-shadow-xl max-w-xl flex flex-col items-center justify-center gap-10 -translate-y-[30%]">
           <h2 className="text-2xl">Student Name</h2>
-          <button className="bg-primary-orange py-2 px-4 rounded-lg text-2xl">
-            Roll it
+          <button className="bg-primary-orange hover:bg-[#99999] py-3 px-6 rounded-lg text-2xl text-primary-white font-thin tracking-wide hover:text-black drop-shadow-lg hover:drop-shadow-xl active:drop-shadow-sm">
+            PULL
           </button>
         </section>
       </main>
