@@ -26,23 +26,24 @@ const HomePage: React.FC = () => {
 
   const getStudentData = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/");
+      const response = await fetch("http://127.0.0.1:8000/students/");
       const data = await response.json();
+      // console.log(data)
       setStudentData(data);
-      console.log(studentData);
     } catch (error) {
       console.log(error);
     }
   };
 
   const randomizer = () => {
-    const RANDOM_NUMBER = Math.floor(Math.random() * studentData.length!);
+    const RANDOM_NUMBER = Math.floor(Math.random() * studentData.length);
     return RANDOM_NUMBER;
   };
 
   const handleButtonClick = () => {
     const RANDOM_INDEX = randomizer();
     setTimeout(() => {
+
       setTheChosenOne(studentData[RANDOM_INDEX]);
     }, 2000);
     setTitleText("The lucky winner is...");
