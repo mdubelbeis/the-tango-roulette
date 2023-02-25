@@ -2,8 +2,23 @@ import Head from "next/head";
 import Image from "next/image";
 
 import Logo from "public/code-platoon-logo-black.png";
+import { useEffect, useState } from "react";
 
-export default function Home() {
+const HomePage = () => {
+  const [studentData, setStudentData] = useState<{}>({});
+
+  useEffect(() => {
+    // This will run only on init render
+    getStudentData();
+  }, []);
+
+  const getStudentData = async () => {
+    const response = await fetch("");
+    const data = await response.json();
+
+    setStudentData(data);
+  };
+
   return (
     <>
       <Head>
@@ -12,15 +27,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="flex items-center bg-primary-orange text-center text-xl p-4 text-primary-white">
+      <header className="flex items-center bg-primary-orange text-center text-xl p-4 text-primary-white drop-shadow-xl">
         <Image src={Logo} alt="code platoon logo" className="w-32" />
-        <h1>THE TANGO ROULETTE</h1>
+        <h1 className="tracking-wider">THE TANGO ROULETTE</h1>
       </header>
-      <main className="w-screen h-screen bg-primary-teal">
+      <main className="w-screen h-screen bg-primary-teal flex items-center justify-center">
         <section>
-          <h2></h2>
+          <h2>Student Name</h2>
+          <button>Roll it</button>
         </section>
       </main>
     </>
   );
-}
+};
+
+export default HomePage;
