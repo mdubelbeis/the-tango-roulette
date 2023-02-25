@@ -9,6 +9,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <header>
+        <h1>THE TANGO ROULETTE</h1>
+      </header>
+      <main className="w-screen h-screen bg-primary-teal">
+        <section>
+          <h2></h2>
+        </section>
+      </main>
     </>
   );
 }
