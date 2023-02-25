@@ -14,7 +14,7 @@ interface Student {
   timesGone: number;
 }
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const [studentData, setStudentData] = useState<Student[]>();
   const [theChosenOne, setTheChosenOne] = useState<Student>();
   const [titleText, setTitleText] = useState<string>("Who's feeling lucky?");
