@@ -4,6 +4,7 @@ import { GrSearch } from "react-icons/gr";
 import Logo from "public/code-platoon-logo-black.png";
 import { useEffect, useState } from "react";
 import { dummy_data } from "@/dummy_data/dummy_data";
+import Link from "next/link";
 
 interface Student {
   id: number;
@@ -56,7 +57,9 @@ const HomePage = () => {
       </Head>
       <header className="flex items-center justify-between bg-primary-orange text-center text-xl p-4 text-primary-white drop-shadow-xl">
         <div className="flex items-center">
-          <Image src={Logo} alt="code platoon logo" className="w-32" />
+          <Link href="/">
+            <Image src={Logo} alt="code platoon logo" className="w-32" />
+          </Link>
           <h1 className="tracking-wider">THE TANGO ROULETTE</h1>
         </div>
         <div className="">
