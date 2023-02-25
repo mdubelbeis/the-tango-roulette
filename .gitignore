@@ -48,3 +48,4 @@ next-env.d.ts
 
 #CacheFiles
 the-backend/tangoRouletteBackend/__pycache__/
+the-backend/tangoRouletteBackend/migrations/__pycache__/
