@@ -16,6 +16,7 @@ interface Student {
 const HomePage = () => {
   const [studentData, setStudentData] = useState<Student[]>();
   const [theChosenOne, setTheChosenOne] = useState<Student>();
+  const [titleText, setTitleText] = useState<string>("Who's feeling lucky?");
 
   useEffect(() => {
     // This will run only on init render
@@ -39,8 +40,10 @@ const HomePage = () => {
 
   const handleButtonClick = () => {
     const RANDOM_INDEX = randomizer();
-    setTheChosenOne(dummy_data[RANDOM_INDEX]);
-    console.log(dummy_data[RANDOM_INDEX]);
+    setTimeout(() => {
+      setTheChosenOne(dummy_data[RANDOM_INDEX]);
+    }, 2000);
+    setTitleText("The lucky winner is...");
   };
 
   return (
@@ -78,8 +81,8 @@ const HomePage = () => {
         <section className="bg-shades-300 w-10/12 py-20 rounded-xl drop-shadow-xl max-w-xl flex flex-col items-center justify-center gap-10 -translate-y-[30%]">
           <h2 className="text-2xl">
             {!theChosenOne
-              ? "Who is feeling lucky?"
-              : `${theChosenOne.firstName}`}
+              ? `${titleText}`
+              : `${titleText}${theChosenOne.firstName}`}
           </h2>
           <button
             onClick={handleButtonClick}
