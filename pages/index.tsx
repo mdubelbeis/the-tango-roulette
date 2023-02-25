@@ -1,4 +1,7 @@
 import Head from "next/head";
+import Image from "next/image";
+
+import Logo from "public/code-platoon-logo-black.png";
 
 export default function Home() {
   return (
@@ -9,7 +12,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
+      <header className="flex items-center bg-primary-orange text-center text-xl p-4 text-primary-white">
+        <Image src={Logo} alt="code platoon logo" className="w-32" />
         <h1>THE TANGO ROULETTE</h1>
       </header>
       <main className="w-screen h-screen bg-primary-teal">
