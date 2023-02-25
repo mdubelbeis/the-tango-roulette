@@ -39,3 +39,13 @@ next-env.d.ts
 #JetBrains stuff
 .idea/
 .idea
+
+#virtual environment files
+.venv/
+.venv
+./the-backend/.venv
+
+
+#CacheFiles
+the-backend/tangoRouletteBackend/__pycache__/
+the-backend/tangoRouletteBackend/migrations/__pycache__/
