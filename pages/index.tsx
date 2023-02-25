@@ -25,24 +25,27 @@ const HomePage = () => {
   }, []);
 
   const getStudentData = async () => {
-    // try {
-    //   // const response = await fetch("");
-    //   // const data = await response.json();
-    //   // setStudentData(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await fetch("http://127.0.0.1:8000/students/");
+      const data = await response.json();
+      // console.log(data)
+      setStudentData(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const randomizer = () => {
-    const RANDOM_NUMBER = Math.floor(Math.random() * dummy_data.length);
+    const RANDOM_NUMBER = Math.floor(Math.random() * studentData.length);
     return RANDOM_NUMBER;
   };
 
   const handleButtonClick = () => {
     const RANDOM_INDEX = randomizer();
     setTimeout(() => {
-      setTheChosenOne(dummy_data[RANDOM_INDEX]);
+      console.log(studentData[0].firstName)
+      console.log(RANDOM_INDEX)
+      setTheChosenOne(studentData[RANDOM_INDEX]);
     }, 2000);
     setTitleText("The lucky winner is...");
   };
