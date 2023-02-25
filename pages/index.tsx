@@ -31,10 +31,12 @@ const HomePage = () => {
         <Image src={Logo} alt="code platoon logo" className="w-32" />
         <h1 className="tracking-wider">THE TANGO ROULETTE</h1>
       </header>
-      <main className="w-screen h-screen bg-primary-teal flex items-center justify-center">
-        <section>
-          <h2>Student Name</h2>
-          <button>Roll it</button>
+      <main className="w-screen h-screen bg-primary-teal flex items-center justify-center font-lato">
+        <section className="bg-shades-300 w-10/12 py-20 rounded-xl drop-shadow-xl max-w-xl flex flex-col items-center justify-center gap-10 -translate-y-[30%]">
+          <h2 className="text-2xl">Student Name</h2>
+          <button className="bg-primary-orange py-2 px-4 rounded-lg text-2xl">
+            Roll it
+          </button>
         </section>
       </main>
     </>
