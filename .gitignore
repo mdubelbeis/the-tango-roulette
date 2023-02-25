@@ -44,3 +44,7 @@ next-env.d.ts
 .venv/
 .venv
 ./the-backend/.venv
+
+
+#CacheFiles
+the-backend/tangoRouletteBackend/__pycache__/
