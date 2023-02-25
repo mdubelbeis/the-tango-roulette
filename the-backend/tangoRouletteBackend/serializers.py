@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from models import Student
+from .models import Student
 
 
-class StudentSerializer(serializers.Serializer):
+class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['id', 'firstName', 'LastName', 'isRemote', 'num_times_chosen']
+        fields = ['id', 'firstName', 'lastName', 'isRemote', 'num_times_chosen']
