@@ -14,7 +14,7 @@ interface Student {
   timesGone: number;
 }
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const [studentData, setStudentData] = useState<Student[]>();
   const [theChosenOne, setTheChosenOne] = useState<Student>();
   const [titleText, setTitleText] = useState<string>("Who's feeling lucky?");
@@ -43,8 +43,7 @@ const HomePage = () => {
   const handleButtonClick = () => {
     const RANDOM_INDEX = randomizer();
     setTimeout(() => {
-      console.log(studentData[0].firstName)
-      console.log(RANDOM_INDEX)
+
       setTheChosenOne(studentData[RANDOM_INDEX]);
     }, 2000);
     setTitleText("The lucky winner is...");

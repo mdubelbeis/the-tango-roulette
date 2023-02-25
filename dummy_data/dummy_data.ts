@@ -15,8 +15,8 @@ export const dummy_data = [
   },
   {
     id: 3,
-    firstName: "Dizz",
-    lastName: "Smith",
+    firstName: "Johnny",
+    lastName: "Bravo",
     isRemote: true,
     timesGone: 0,
   },
@@ -29,7 +29,7 @@ export const dummy_data = [
   },
   {
     id: 5,
-    firstName: "lastOne",
+    firstName: "Some",
     lastName: "Data",
     isRemote: true,
     timesGone: 0,
