@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-
+import { GrSearch } from "react-icons/gr";
 import Logo from "public/code-platoon-logo-black.png";
 import { useEffect, useState } from "react";
 
@@ -27,9 +27,25 @@ const HomePage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="flex items-center bg-primary-orange text-center text-xl p-4 text-primary-white drop-shadow-xl">
-        <Image src={Logo} alt="code platoon logo" className="w-32" />
-        <h1 className="tracking-wider">THE TANGO ROULETTE</h1>
+      <header className="flex items-center justify-between bg-primary-orange text-center text-xl p-4 text-primary-white drop-shadow-xl">
+        <div className="flex items-center">
+          <Image src={Logo} alt="code platoon logo" className="w-32" />
+          <h1 className="tracking-wider">THE TANGO ROULETTE</h1>
+        </div>
+        <div className="">
+          <label className="relative">
+            <input
+              title="search"
+              placeholder="Search..."
+              type="text"
+              name="search"
+              className="hidden md:block px-3 py-2 rounded-full w-full"
+            />
+            <GrSearch color="" className="absolute right-4 top-3">
+              test
+            </GrSearch>
+          </label>
+        </div>
       </header>
       <main className="w-screen h-screen bg-primary-teal flex items-center justify-center font-lato">
         <section className="bg-shades-300 w-10/12 py-20 rounded-xl drop-shadow-xl max-w-xl flex flex-col items-center justify-center gap-10 -translate-y-[30%]">
