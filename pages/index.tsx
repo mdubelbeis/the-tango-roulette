@@ -14,26 +14,14 @@ interface Student {
   timesGone: number;
 }
 
-const HomePage: React.FC = () => {
-  const [studentData, setStudentData] = useState<Student[]>();
+interface HomePageProps {
+  data: Student[];
+}
+
+const HomePage: React.FC<HomePageProps> = ({ data }) => {
+  const [studentData, setStudentData] = useState<Student[]>(data);
   const [theChosenOne, setTheChosenOne] = useState<Student>();
   const [titleText, setTitleText] = useState<string>("Who's feeling lucky?");
-
-  useEffect(() => {
-    // This will run only on init render
-    getStudentData();
-  }, []);
-
-  const getStudentData = async () => {
-    try {
-      const response = await fetch("http://127.0.0.1:8000/students/");
-      const data = await response.json();
-      // console.log(data)
-      setStudentData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const randomizer = () => {
     const RANDOM_NUMBER = Math.floor(Math.random() * studentData.length);
@@ -43,7 +31,6 @@ const HomePage: React.FC = () => {
   const handleButtonClick = () => {
     const RANDOM_INDEX = randomizer();
     setTimeout(() => {
-
       setTheChosenOne(studentData[RANDOM_INDEX]);
     }, 2000);
     setTitleText("The lucky winner is...");
@@ -100,5 +87,15 @@ const HomePage: React.FC = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  // Fetch data on server.
+  const response = await fetch("http://127.0.0.1:8000/students/");
+  const data = await response.json();
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  };
+}
 
 export default HomePage;
