@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           />
         </Link>
         <h1 className="tracking-wider text-2xl md:text-2xl lg:text-3xl xl:text-4xl p-2 text-primary-white">
-          THE TANGO ROULETTE
+          TANGO COHORT
         </h1>
       </div>
       <div className="">
