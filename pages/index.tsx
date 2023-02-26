@@ -1,10 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-import { GrSearch } from "react-icons/gr";
-import Logo from "public/code-platoon-logo-black.png";
+
 import { useState } from "react";
 import { dummy_data } from "@/dummy_data/dummy_data";
-import Link from "next/link";
+import Header from "@/components/ui/Header";
 
 interface Student {
   id: number;
@@ -44,31 +42,7 @@ const HomePage: React.FC<HomePageProps> = ({ data }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="flex items-center justify-between bg-primary-orange text-center text-xl p-4 text-primary-white drop-shadow-xl">
-        <div className="flex items-center">
-          <Link href="/">
-            <Image src={Logo} alt="code platoon logo" className="w-32" />
-          </Link>
-          <h1 className="tracking-wider">THE TANGO ROULETTE</h1>
-        </div>
-        <div className="">
-          <label className="relative">
-            <input
-              title="search"
-              placeholder="Search..."
-              type="text"
-              name="search"
-              className="hidden md:block px-3 py-2 rounded-full w-full"
-            />
-            <GrSearch
-              color=""
-              className="hidden md:block absolute right-4 top-3"
-            >
-              test
-            </GrSearch>
-          </label>
-        </div>
-      </header>
+      <Header />
       <main className="w-screen h-screen bg-primary-teal flex items-center justify-center font-lato">
         <section className="bg-shades-300 w-10/12 py-20 rounded-xl drop-shadow-xl max-w-xl flex flex-col items-center justify-center gap-10 -translate-y-[30%]">
           <h2 className="text-2xl">
