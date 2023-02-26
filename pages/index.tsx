@@ -29,6 +29,8 @@ const HomePage: React.FC<HomePageProps> = ({ data }) => {
   const handleButtonClick = () => {
     const RANDOM_INDEX = randomizer();
     setTimeout(() => {
+      console.log(RANDOM_INDEX)
+      console.log(studentData[RANDOM_INDEX])
       setTheChosenOne(studentData[RANDOM_INDEX]);
     }, 2000);
     setTitleText("The lucky winner is...");
