@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { GrSearch } from "react-icons/gr";
 import Logo from "public/code-platoon-logo-black.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { dummy_data } from "@/dummy_data/dummy_data";
 import Link from "next/link";
 
@@ -89,9 +89,22 @@ const HomePage: React.FC<HomePageProps> = ({ data }) => {
 };
 
 export async function getServerSideProps(context) {
+  let data;
   // Fetch data on server.
-  const response = await fetch("http://127.0.0.1:8000/students/");
-  const data = await response.json();
+  try {
+    const response = await fetch("http://127.0.0.1:8000/students/");
+    data = await response.json();
+  } catch (error) {
+    data = [
+      {
+        firstName: "Mason",
+        lastName: "Dubelbeis",
+        id: 1,
+        isRemote: true,
+        timesGone: 0,
+      },
+    ];
+  }
 
   return {
     props: { data }, // will be passed to the page component as props
