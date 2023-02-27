@@ -1,3 +1,4 @@
+import { dummy_data } from "@/dummy_data/dummy_data";
 import { useState } from "react";
 
 interface Student {
@@ -70,22 +71,14 @@ export async function getServerSideProps(context) {
   let data;
   // Fetch data on server.
   try {
-    const response = await fetch("http://127.0.0.1:8000/students/");
-    // const response = await fetch(
-    //   "https://the-tango-roulette-92rfrkpyb-mdubelbeis.vercel.app/students/"
-    // );
+    // const response = await fetch("http://127.0.0.1:8000/students/");
+    const response = await fetch(
+      "https://the-tango-roulette.vercel.app/students/"
+    );
 
     data = await response.json();
   } catch (error) {
-    data = [
-      {
-        firstName: "Mason",
-        lastName: "Dubelbeis",
-        id: 1,
-        isRemote: true,
-        timesGone: 0,
-      },
-    ];
+    data = dummy_data;
   }
 
   return {
