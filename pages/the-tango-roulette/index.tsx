@@ -76,14 +76,7 @@ export async function getServerSideProps(context) {
 
     data = await response.json();
   } catch (error) {
-    // data = dummy_data;
-    data = {
-      id: 1,
-      firstName: "Mason",
-      lastName: "Dubelbeis",
-      isRemote: true,
-      timesGone: 0,
-    };
+    data = dummy_data;
   }
 
   return {
