@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         "primary-orange": "#f26122",
         "primary-teal": "#388084",
+        "primary-teal-dark": "#387A88",
         "primary-white": "#f8f8f9",
         shades: {
           50: "#fff8f6",
