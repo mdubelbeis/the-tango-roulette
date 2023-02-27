@@ -70,7 +70,11 @@ export async function getServerSideProps(context) {
   let data;
   // Fetch data on server.
   try {
-    const response = await fetch("http://127.0.0.1:8000/students/");
+    // const response = await fetch("http://127.0.0.1:8000/students/"); local use only
+    const response = await fetch(
+      "https://the-tango-roulette-92rfrkpyb-mdubelbeis.vercel.app/students/"
+    );
+
     data = await response.json();
   } catch (error) {
     data = [
