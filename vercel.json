@@ -2,13 +2,14 @@
   "builds": [
     {
       "src": "the-backend/tangoRouletteBackend/wsgi.py",
-      "use": "@vercel/python"
+      "use": "@ardnt/vercel-python-wsgi",
+      "config": { "maxLambdaSize": "15mb" }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "the-backend/tangoRouletteBackend/wsgi.py"
+      "dest": "vercel_app/wsgi.py"
     }
   ]
 }
