@@ -67,7 +67,7 @@ const RouletteApp: React.FC<HomePageProps> = ({ data }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   let data;
   // Fetch data on server.
   try {
