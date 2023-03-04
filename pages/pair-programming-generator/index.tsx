@@ -1,5 +1,5 @@
 import { dummy_data } from "@/dummy_data/dummy_data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 
 interface Student {
@@ -19,6 +19,9 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
   const [showStudentPairs, setShowStudentPairs] = useState<boolean>(false);
 
   // Fill any empty data fields
+  useEffect(() => {
+    console.log(studentsData);
+  }, []);
 
   const pairingOutput = () => {
     return (
@@ -26,8 +29,13 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
         {studentsData.map((pairing) => (
           <li key={pairing.id}>
             <>
-              <span>{pairing[0].firstName}</span>
+              <span> {pairing[0].firstName}</span>
               <span> {pairing[0].lastName}</span>
+            </>
+            -
+            <>
+              <span> {pairing[1].firstName}</span>
+              <span> {pairing[1].lastName}</span>
             </>
           </li>
         ))}
@@ -76,32 +84,38 @@ export async function getServerSideProps(context) {
 
   try {
     // const response = await fetch("http://127.0.0.1:8000/students/");
-    const response = await fetch("http://100.25.160.162:8000/students/");
+    const response = await fetch("http://100.25.160.162:8000/studentss/");
     data = await response.json();
 
     shuffleArray(data);
 
     let pairResults = [];
-    for (let i = 0; i < data.length; i += 2) {
-      if (data[i + 1]["firstName"] !== undefined) {
-        pairResults.push([data[i], data[i + 1]]);
-      } else {
-        pairResults.push([data[i]]);
-      }
-    }
+    data.forEach((student, index) => {
+      pairResults.push(`${student.firstName} ${student.lastName}`);
+    });
+
     data = pairResults;
   } catch (error) {
     shuffleArray(dummy_data);
 
-    let pairResults = [];
-    for (let i = 0; i < dummy_data.length; i += 2) {
-      if (dummy_data[i + 1] !== undefined) {
-        pairResults.push([dummy_data[i], dummy_data[i + 1]]);
+    const studentsLeft = [];
+    const studentsRight = [];
+    dummy_data.forEach((student) => {
+      if (student.id % 2 === 0) {
+        studentsLeft.push(`${student.firstName} ${student.lastName}`);
       } else {
-        pairResults.push([dummy_data[i]]);
+        studentsRight.push(`${student.firstName} ${student.lastName}`);
       }
+    });
+
+    if (studentsLeft.length === studentsRight.length) {
+      // Combine the two by pairing up the indices
+    } else {
+      // Add blank element to end of shortest array then filter them together
+      // Combine the two by pairing up the indices
     }
-    data = pairResults;
+
+    data = studentsLeft.concat(studentsRight);
   }
 
   return {
