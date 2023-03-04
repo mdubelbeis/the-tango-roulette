@@ -45,13 +45,13 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
         </h1>
       </header>
 
-      <main className="flex flex-col">
+      <main className="flex flex-col h-screen">
         <section className="flex flex-col items-center gap-10">
           <div>{showStudentPairs && pairingOutput()}</div>
           <div>
             <button
               onClick={() => setShowStudentPairs(!showStudentPairs)}
-              className="font-thin font-lato py-2 px-4 bg-primary-orange rounded-md text-xl hover:bg-primary-orange-dark drop-shadow-lg hover:drop-shadow-xl active:drop-shadow-md"
+              className="font-thin font-lato uppercase tracking-wide py-2 px-3 bg-primary-orange rounded-md text-xl hover:bg-primary-orange-dark drop-shadow-lg hover:drop-shadow-xl active:drop-shadow-md"
             >
               Generate
             </button>
