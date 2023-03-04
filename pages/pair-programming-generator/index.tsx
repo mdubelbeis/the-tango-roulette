@@ -1,5 +1,6 @@
 import { dummy_data } from "@/dummy_data/dummy_data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Button from "@/components/ui/Button";
 
 interface Student {
   id: number;
@@ -17,12 +18,25 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
   const [studentsData, setStudentsData] = useState<Student[]>(data);
   const [showStudentPairs, setShowStudentPairs] = useState<boolean>(false);
 
-  const handleShowPairs = () => {
-    console.log(studentsData);
+  // Fill any empty data fields
+
+  const pairingOutput = () => {
+    return (
+      <ul className="flex flex-col gap-2 items-start">
+        {studentsData.map((pairing) => (
+          <li key={pairing.id}>
+            <>
+              <span>{pairing[0].firstName}</span>
+              <span> {pairing[0].lastName}</span>
+            </>
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
-    <div className="w-screen h-screen bg-primary-teal text-primary-white uppercase flex flex-col items-center justify-center gap-20">
+    <div className="py-32 w-screen bg-primary-teal text-primary-white uppercase flex flex-col items-center justify-center gap-10">
       <header>
         <h1 className="text-4xl font-thin font-lato flex flex-col items-center justify-center">
           <span>Pair</span>
@@ -31,11 +45,12 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
         </h1>
       </header>
 
-      <main className="flex flex-col gap-4">
+      <main className="flex flex-col">
         <section className="flex flex-col items-center gap-10">
+          <div>{showStudentPairs && pairingOutput()}</div>
           <div>
             <button
-              onClick={handleShowPairs}
+              onClick={() => setShowStudentPairs(!showStudentPairs)}
               className="font-thin font-lato py-2 px-4 bg-primary-orange rounded-md text-xl hover:bg-primary-orange-dark drop-shadow-lg hover:drop-shadow-xl active:drop-shadow-md"
             >
               Generate
@@ -68,7 +83,7 @@ export async function getServerSideProps(context) {
 
     let pairResults = [];
     for (let i = 0; i < data.length; i += 2) {
-      if (data[i + 1] !== undefined) {
+      if (data[i + 1]["firstName"] !== undefined) {
         pairResults.push([data[i], data[i + 1]]);
       } else {
         pairResults.push([data[i]]);
