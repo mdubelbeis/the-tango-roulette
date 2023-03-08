@@ -1,6 +1,5 @@
 import { dummy_data } from "@/dummy_data/dummy_data";
 import { useEffect, useState } from "react";
-import Button from "@/components/ui/Button";
 
 interface Student {
   id: number;
@@ -20,31 +19,30 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
 
   // Fill any empty data fields
   useEffect(() => {
-    console.log(studentsData);
+    console.log(studentsData[0]);
+    console.log(studentsData[1]);
   }, []);
 
-  const pairingOutput = () => {
-    return (
-      <ul className="flex flex-col gap-2 items-start">
-        {studentsData.map((pairing) => (
-          <li key={pairing.id}>
-            <>
-              <span> {pairing[0].firstName}</span>
-              <span> {pairing[0].lastName}</span>
-            </>
-            -
-            <>
-              <span> {pairing[1].firstName}</span>
-              <span> {pairing[1].lastName}</span>
-            </>
-          </li>
-        ))}
-      </ul>
-    );
-  };
+  // const pairingOutput = (index) => {
+  //   return (
+  //     <ul className="flex flex-col gap-2 items-start">
+  //       {studentsData.map((studentGroup) => {
+  //         if (index === 0) {
+  //           return (
+  //             <li key={studentGroup[0].id}>{studentGroup[0].firstName}</li>
+  //           );
+  //         } else {
+  //           return (
+  //             <li key={studentGroup[1].id}>{studentGroup[1].firstName}</li>
+  //           );
+  //         }
+  //       })}
+  //     </ul>
+  //   );
+  // };
 
   return (
-    <div className="py-32 w-screen bg-primary-teal text-primary-white uppercase flex flex-col items-center justify-center gap-10">
+    <div className="py-60 w-screen bg-primary-teal text-primary-white uppercase flex flex-col items-center justify-center gap-10">
       <header>
         <h1 className="text-4xl font-thin font-lato flex flex-col items-center justify-center">
           <span>Pair</span>
@@ -55,7 +53,21 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
 
       <main className="flex flex-col h-screen">
         <section className="flex flex-col items-center gap-10">
-          <div>{showStudentPairs && pairingOutput()}</div>
+          <div className="flex gap-10 min-h-content">
+            <ul className="flex flex-col gap-2 h-full">
+              {showStudentPairs &&
+                studentsData.map((studentGroup) => (
+                  <li key={studentGroup[0].id}>{studentGroup[0]}</li>
+                ))}
+            </ul>
+            <ul className="flex flex-col gap-2 h-full">
+              {showStudentPairs &&
+                studentsData.map((studentGroup) => (
+                  <li key={studentGroup[1].id}>{studentGroup[1]}</li>
+                ))}
+            </ul>
+          </div>
+
           <div>
             <button
               onClick={() => setShowStudentPairs(!showStudentPairs)}
@@ -70,7 +82,7 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   let data;
   // Fetch data on server.
   const shuffleArray = (array) => {
@@ -84,22 +96,29 @@ export async function getServerSideProps(context) {
 
   try {
     // const response = await fetch("http://127.0.0.1:8000/students/");
-    const response = await fetch("http://100.25.160.162:8000/studentss/");
+    const response = await fetch("http://100.25.160.162:8000/students/");
     data = await response.json();
 
     shuffleArray(data);
 
-    let pairResults = [];
+    const studentsLeft = [];
+    const studentsRight = [];
+
     data.forEach((student) => {
-      pairResults.push(`${student.firstName} ${student.lastName}`);
+      if (student.id % 2 === 0) {
+        studentsLeft.push(`${student.firstName} ${student.lastName}`);
+      } else {
+        studentsRight.push(`${student.firstName} ${student.lastName}`);
+      }
     });
 
-    data = pairResults;
+    data = [studentsLeft, studentsRight];
   } catch (error) {
     shuffleArray(dummy_data);
 
     const studentsLeft = [];
     const studentsRight = [];
+
     dummy_data.forEach((student) => {
       if (student.id % 2 === 0) {
         studentsLeft.push(`${student.firstName} ${student.lastName}`);
@@ -108,14 +127,7 @@ export async function getServerSideProps(context) {
       }
     });
 
-    if (studentsLeft.length === studentsRight.length) {
-      // Combine the two by pairing up the indices
-    } else {
-      // Add blank element to end of shortest array then filter them together
-      // Combine the two by pairing up the indices
-    }
-
-    data = studentsLeft.concat(studentsRight);
+    data = [studentsLeft, studentsRight];
   }
 
   return {
