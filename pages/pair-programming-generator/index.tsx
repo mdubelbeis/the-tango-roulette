@@ -90,7 +90,7 @@ export async function getServerSideProps(context) {
     shuffleArray(data);
 
     let pairResults = [];
-    data.forEach((student, index) => {
+    data.forEach((student) => {
       pairResults.push(`${student.firstName} ${student.lastName}`);
     });
 
