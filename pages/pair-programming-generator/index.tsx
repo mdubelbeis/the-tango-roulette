@@ -14,7 +14,8 @@ interface PairProgrammingAppProps {
 }
 
 const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
-  const [studentsData, setStudentsData] = useState<Student[]>(data);
+  const [studentsData, setStudentsData] = useState<any>(data[0]);
+  const [studentsDataTwo, setStudentsDataTwo] = useState<any>(data[1]);
   const [showStudentPairs, setShowStudentPairs] = useState<boolean>(false);
 
   // Fill any empty data fields
@@ -34,20 +35,18 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
         </h1>
       </header>
 
-      <main className="flex flex-col items-center h-screen text-center">
-        <section className="flex flex-col items-center gap-10">
+      <main className="flex flex-col items-center h-screen text-center text-lg md:text-xl xl:text-2xl">
+        <section className="flex flex-col items-center justify-center gap-10">
           {showStudentPairs && (
-            <div className="flex gap-3 min-h-content tracking-wider font-thin">
+            <div className="flex gap-2 md:gap-10 lg:gap-20 min-h-content tracking-wider font-thin">
               <ul className="flex flex-col items-center gap-2">
-                {studentsData[0].map((student) => (
-                  <li key={student} className="">
-                    {student}
-                  </li>
+                {studentsData.map((student, index) => (
+                  <li key={student}>{`${index + 1} - ${student}`}</li>
                 ))}
               </ul>
               <ul className="flex flex-col items-center gap-2">
-                {studentsData[1].map((student) => (
-                  <li key={student}>{student}</li>
+                {studentsDataTwo.map((student, index) => (
+                  <li key={student}>{`${index + 1} - ${student}`}</li>
                 ))}
               </ul>
             </div>
