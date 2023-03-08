@@ -18,11 +18,6 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
   const [studentsDataTwo, setStudentsDataTwo] = useState<any>(data[1]);
   const [showStudentPairs, setShowStudentPairs] = useState<boolean>(false);
 
-  useEffect(() => {
-    shuffleArray(studentsData);
-    shuffleArray(studentsDataTwo);
-  }, [showStudentPairs]);
-
   // Fill any empty data fields
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -31,6 +26,15 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
       array[i] = array[j];
       array[j] = temp;
     }
+  };
+
+  const shuffleBothArrays = () => {
+    setShowStudentPairs(false);
+    setTimeout(() => {
+      shuffleArray(studentsData);
+      shuffleArray(studentsDataTwo);
+      setShowStudentPairs(true);
+    }, 1000);
   };
 
   return (
@@ -63,12 +67,18 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
               </ul>
             </div>
           )}
-          <div>
+          <div className="flex gap-4">
             <button
               onClick={() => setShowStudentPairs(!showStudentPairs)}
               className="font-thin font-lato uppercase tracking-wide py-2 px-3 bg-primary-orange rounded-md text-xl hover:bg-primary-orange-dark drop-shadow-lg hover:drop-shadow-xl active:drop-shadow-md"
             >
               {!showStudentPairs ? "Show List" : "Hide List"}
+            </button>
+            <button
+              onClick={shuffleBothArrays}
+              className="font-thin font-lato uppercase tracking-wide py-2 px-3 bg-primary-orange rounded-md text-xl hover:bg-primary-orange-dark drop-shadow-lg hover:drop-shadow-xl active:drop-shadow-md"
+            >
+              SHUFFLE
             </button>
           </div>
         </section>
