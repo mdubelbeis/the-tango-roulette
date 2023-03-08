@@ -18,8 +18,20 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
   const [studentsDataTwo, setStudentsDataTwo] = useState<any>(data[1]);
   const [showStudentPairs, setShowStudentPairs] = useState<boolean>(false);
 
+  useEffect(() => {
+    shuffleArray(studentsData);
+    shuffleArray(studentsData);
+  }, [showStudentPairs]);
+
   // Fill any empty data fields
-  useEffect(() => {}, []);
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  };
 
   return (
     <div
@@ -65,7 +77,7 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   let data;
   // Fetch data on server.
   const shuffleArray = (array) => {
