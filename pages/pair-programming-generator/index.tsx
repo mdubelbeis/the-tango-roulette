@@ -65,7 +65,7 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
   );
 };
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   let data;
   // Fetch data on server.
   const shuffleArray = (array) => {
