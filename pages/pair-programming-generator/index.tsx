@@ -27,7 +27,7 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
       } bg-primary-teal text-primary-white uppercase flex flex-col items-center justify-center gap-10`}
     >
       <header>
-        <h1 className="text-4xl font-thin font-lato flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-medium font-lato flex flex-col items-center justify-center">
           <span>Pair</span>
           <span>Programming</span>
           <span>Generator</span>
@@ -37,10 +37,12 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
       <main className="flex flex-col items-center h-screen text-center">
         <section className="flex flex-col items-center gap-10">
           {showStudentPairs && (
-            <div className="flex gap-3 min-h-content tracking-wider">
+            <div className="flex gap-3 min-h-content tracking-wider font-thin">
               <ul className="flex flex-col items-center gap-2">
                 {studentsData[0].map((student) => (
-                  <li key={student}>{student}</li>
+                  <li key={student} className="">
+                    {student}
+                  </li>
                 ))}
               </ul>
               <ul className="flex flex-col items-center gap-2">
@@ -77,8 +79,8 @@ export async function getStaticProps(context) {
   };
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/students/");
-    // const response = await fetch("http://100.25.160.162:8000/students/");
+    // const response = await fetch("http://127.0.0.1:8000/students/");
+    const response = await fetch("http://100.25.160.162:8000/students/");
     data = await response.json();
 
     shuffleArray(data);
