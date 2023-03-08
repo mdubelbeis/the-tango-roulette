@@ -20,7 +20,7 @@ const PairProgrammingApp: React.FC<PairProgrammingAppProps> = ({ data }) => {
 
   useEffect(() => {
     shuffleArray(studentsData);
-    shuffleArray(studentsData);
+    shuffleArray(studentsDataTwo);
   }, [showStudentPairs]);
 
   // Fill any empty data fields
