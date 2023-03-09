@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GrSearch } from "react-icons/gr";
+
 import Logo from "public/code-platoon-logo-black.png";
 
 const Header: React.FC = () => {
@@ -23,18 +23,6 @@ const Header: React.FC = () => {
           </h1>
           <p className="hidden lg:block">February 06, 2023 - May 23, 2023</p>
         </div>
-      </div>
-      <div className="">
-        <label className="relative drop-shadow-xl">
-          <input
-            title="search"
-            placeholder="Search..."
-            type="text"
-            name="search"
-            className="hidden md:block px-3 py-2 rounded-full w-full text-gray-600 xl:w-[350px]"
-          />
-          <GrSearch className="hidden md:block absolute right-4 top-3" />
-        </label>
       </div>
     </header>
   );
