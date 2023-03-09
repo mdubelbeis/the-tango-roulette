@@ -21,7 +21,7 @@ const AddStudentPage = () => {
   return (
     <div className="flex flex-col items-center justify-center lg:flex-row w-screen h-screen max-w-7xl mx-auto">
       <main className="flex flex-col-reverse lg:flex-row mt-40 w-11/12 lg:p-20">
-        <section className="hidden lg:block w-full lg:w-1/2 lg:shadow-lg lg:shadow-gray-300">
+        <section className="hidden lg:block w-full lg:w-1/2 lg:shadow-lg lg:shadow-gray-300 bg-primary-teal">
           <Image
             src={heroCardImg}
             alt="hero-card-img"
@@ -29,7 +29,7 @@ const AddStudentPage = () => {
           />
         </section>
         <section className="w-full bg-primary-teal p-10 md:p-20 flex flex-col items-center justify-center gap-10 text-xl tracking-wide bg-opacity-20 shadow-lg shadow-gray-300 rounded-xl lg:rounded-tr-xl lg:rounded-br-xl lg:rounded-tl-none lg:rounded-bl-none">
-          <h2 className="md:text-xl lg:text-3xl font-lato font-thin my-10">
+          <h2 className="md:text-xl lg:text-3xl font-lato font-medium my-10 text-primary-teal-dark">
             STUDENT INFO
           </h2>
           <form className="flex flex-col gap-4 w-full">
