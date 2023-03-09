@@ -29,7 +29,7 @@ const AddStudentPage = () => {
           />
         </section>
         <section className="w-full bg-primary-teal p-10 md:p-20 flex flex-col items-center justify-center gap-10 text-xl tracking-wide bg-opacity-20 shadow-lg shadow-gray-300 rounded-xl lg:rounded-tr-xl lg:rounded-br-xl lg:rounded-tl-none lg:rounded-bl-none">
-          <h2 className="md:text-xl lg:text-3xl font-lato font-medium my-10 text-primary-teal-dark">
+          <h2 className="text-2xl md:text-4xl font-lato font-medium my-10 text-primary-teal-dark">
             STUDENT INFO
           </h2>
           <form className="flex flex-col gap-4 w-full">
