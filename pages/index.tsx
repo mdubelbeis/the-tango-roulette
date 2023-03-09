@@ -11,17 +11,17 @@ const HomePage: React.FC = () => {
       <div>
         <nav className="flex flex-col gap-4 text-center">
           <Link
-            href="the-tango-roulette"
+            href="/random-student-generator"
             className="py-2 px-4 w-fit mx-auto bg-primary-teal text-primary-white rounded hover:bg-primary-teal-dark hover:cursor-pointer shadow-lg hover:shadow-xl active:shadow-lg"
           >
             <span className="flex items-center gap-2 hover:bg-primary-teal-dark text-primary-white hover:text-black">
-              The Tango Roulette{" "}
+              Random Student Generator{" "}
               <FaSpinner color="black" className="text-2xl" />
             </span>
           </Link>
 
           <Link
-            href="pair-programming-generator"
+            href="/pair-programming-generator"
             className="py-2 px-4 w-fit mx-auto bg-primary-teal text-primary-white rounded hover:bg-primary-teal-dark hover:cursor-pointer shadow-lg hover:shadow-xl active:shadow-lg"
           >
             <span className="flex items-center gap-2 hover:bg-primary-teal-dark text-primary-white hover:text-black">
