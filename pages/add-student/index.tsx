@@ -33,17 +33,25 @@ const AddStudentPage = () => {
             STUDENT INFO
           </h2>
           <form className="flex flex-col gap-4 w-full">
-            <label className="border-b-[1px] border-opacity-40 border-primary-teal">
+            <label
+              htmlFor="firstName"
+              className="border-b-[1px] border-opacity-40 border-primary-teal"
+            >
               <input
                 type="text"
+                name="firstName"
                 placeholder="First Name"
                 className="bg-none border-none bg-primary-teal py-2 px-2 bg-opacity-0 w-full"
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
-            <label className="border-b-[1px] border-opacity-40 border-primary-teal ">
+            <label
+              htmlFor="lastName"
+              className="border-b-[1px] border-opacity-40 border-primary-teal "
+            >
               <input
                 type="text"
+                name="lastName"
                 placeholder="Last Name"
                 className="bg-none border-none bg-primary-teal py-2 px-2 bg-opacity-0 w-full"
                 onChange={(e) => setFirstName(e.target.value)}
