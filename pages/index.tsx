@@ -4,8 +4,8 @@ import { FaUserPlus, FaUserFriends, FaSpinner } from "react-icons/fa";
 const HomePage: React.FC = () => {
   return (
     <main className="flex flex-col items-center justify-center w-screen h-screen gap-10 font-lato font-medium text-lg">
-      <h2 className="flex flex-col items-center text-4xl tracking-wide font-lato font-semibold">
-        <span>TANGO</span>
+      <h2 className="flex flex-col items-center text-4xl tracking-wide font-lato font-medium">
+        <span>COHORT</span>
         <span>APPS</span>
       </h2>
       <div>
