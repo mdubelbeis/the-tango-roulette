@@ -3,7 +3,7 @@ import heroCardImg from "../../public/mohammad-rahmani-N5bT5RctFZ8-unsplash.jpg"
 const AddStudentPage = () => {
   return (
     <div className="flex flex-col items-center justify-center lg:flex-row w-screen h-screen max-w-6xl mx-auto lg:p-20">
-      <main className="flex flex-col-reverse lg:flex-row mt-40">
+      <main className="flex flex-col-reverse lg:flex-row mt-40 w-10/12">
         <section className="hidden lg:block w-full lg:w-1/2 lg:shadow-lg lg:shadow-gray-300">
           <Image
             src={heroCardImg}
@@ -12,7 +12,7 @@ const AddStudentPage = () => {
           />
         </section>
         <section className="w-full lg:w-1/2 bg-primary-teal p-10 md:p-20 flex flex-col items-center justify-center gap-10 text-xl tracking-wide bg-opacity-20 shadow-lg shadow-gray-300 rounded-xl lg:rounded-tr-xl lg:rounded-br-xl lg:rounded-tl-none lg:rounded-bl-none">
-          <h2 className="lg:text-3xl font-lato font-thin my-10">
+          <h2 className="md:text-xl lg:text-3xl font-lato font-thin my-10">
             STUDENT INFO
           </h2>
           <form className="flex flex-col gap-4 w-full">
@@ -20,18 +20,18 @@ const AddStudentPage = () => {
               <input
                 type="text"
                 placeholder="First Name"
-                className="bg-none border-none bg-primary-teal py-2 bg-opacity-0"
+                className="bg-none border-none bg-primary-teal py-2 px-2 bg-opacity-0 w-full"
               />
             </label>
             <label className="border-b-[1px] border-opacity-40 border-primary-teal ">
               <input
                 type="text"
                 placeholder="Last Name"
-                className="bg-none border-none bg-primary-teal py-2 bg-opacity-0"
+                className="bg-none border-none bg-primary-teal py-2 px-2 bg-opacity-0 w-full"
               />
             </label>
             <div className="flex flex-col items-center gap-3 m-2 text-center text-primary-teal my-10">
-              <span>Remote Student: </span>
+              <span>Remote Student</span>
               <div className="flex gap-2">
                 <label htmlFor="isRemote">Yes</label>
                 <input
@@ -50,7 +50,7 @@ const AddStudentPage = () => {
               </div>
             </div>
             <button
-              className="py-2 px-4 w-fit mx-auto bg-primary-teal text-primary-white rounded hover:bg-primary-teal-dark hover:cursor-pointer shadow-lg hover:shadow-xl active:shadow-lg"
+              className="py-2 px-4 w-fit mx-auto bg-primary-teal text-primary-white rounded hover:bg-primary-teal-dark hover:cursor-pointer shadow-lg hover:shadow-xl active:shadow-lg hover:text-black"
               type="submit"
             >
               SUBMIT

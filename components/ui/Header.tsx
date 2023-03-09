@@ -17,9 +17,9 @@ const Header: React.FC = () => {
             className="w-32 lg:w-44 xl:w-60"
           />
         </Link>
-        <div>
+        <div className="ml-4">
           <h1 className="tracking-wider text-2xl md:text-2xl lg:text-3xl xl:text-4xl p-2 text-primary-white">
-            TANGO COHORT
+            COHORT
           </h1>
           <p className="hidden lg:block">February 06, 2023 - May 23, 2023</p>
         </div>
