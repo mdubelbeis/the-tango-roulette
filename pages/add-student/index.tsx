@@ -14,7 +14,7 @@ const AddStudentPage = () => {
     //TODO: VALIDATION
     //TODO: SET ERROR MESSAGES
     //TODO: PASS INFO TO VIA POST REQUEST: fetch('POST')
-
+    //TODO: Reload?
     router.reload();
   };
 
