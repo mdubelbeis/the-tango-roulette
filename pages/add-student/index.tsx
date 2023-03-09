@@ -1,6 +1,12 @@
 import Image from "next/image";
+import { ReactElement } from "react";
 import heroCardImg from "../../public/mohammad-rahmani-N5bT5RctFZ8-unsplash.jpg";
+
 const AddStudentPage = () => {
+  const handleFormSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="flex flex-col items-center justify-center lg:flex-row w-screen h-screen max-w-6xl mx-auto lg:p-20">
       <main className="flex flex-col-reverse lg:flex-row mt-40 w-10/12">
@@ -15,7 +21,10 @@ const AddStudentPage = () => {
           <h2 className="md:text-xl lg:text-3xl font-lato font-thin my-10">
             STUDENT INFO
           </h2>
-          <form className="flex flex-col gap-4 w-full">
+          <form
+            className="flex flex-col gap-4 w-full"
+            onSubmit={handleFormSubmit}
+          >
             <label className="border-b-[1px] border-opacity-40 border-primary-teal">
               <input
                 type="text"
